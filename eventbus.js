@@ -15,16 +15,16 @@ var EventBus = {
 
                 list.push([callback, context]);
             }
-            
+
             return this;
         },
         unbind: function (names, callback) {
-            var events, calls; 
+            var events, calls;
 
             if (!names || !(events = names.split(/\s+/))) {
                 this._callbacks = {};
             } else if (calls = this._callbacks){
-                for (var i = 0, len = events.length; i < len && (ev = events[i]); i ++) {
+                for (var i = 0, len = events.length, ev; i < len && (ev = events[i]); i ++) {
                     if (!callback) {
                         calls[ev] = [];
                     } else {
